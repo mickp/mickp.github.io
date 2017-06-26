@@ -29,15 +29,18 @@
         </header>
     </div>
 
-    <div id="navbar">
-      {% include navbar.html %}
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        {{ content }}
-      </section>
+    <div style="width: 100%">
+      <div id="navbar" style="height: 100%; width: 160px; float:left;">
+        {% include navbar.html %}
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div id="main_content_wrap" class="outer" style="float:left">
+        <section id="main_content" class="inner">
+          {{ content }}
+        </section>
+      </div>
     </div>
 
     <!-- FOOTER  -->
