@@ -15,6 +15,7 @@ a:hover {
 	text-transform: none;
 }
 
-footer {
-	size:		small;
+footer > p {
+	text-align: 	center;
+	font-size:		small;
 }
