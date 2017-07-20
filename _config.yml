@@ -4,4 +4,4 @@ defaults:
      path: "ConwayToneMatrix"
    values:
      title: ConwayToneMatrix
-     permalink: ConwayToneMatrix.html
+     permalink: "/conway/"

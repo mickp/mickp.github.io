@@ -1,0 +1,20 @@
+:root {
+  --main-bg-colour: #222;
+  --main-fg-colour: #ddd;
+}
+
+a {
+	color:			#66f;
+}
+
+a:hover {
+	color:			#a0f;
+}
+
+.pure-menu-heading {
+	text-transform: none;
+}
+
+footer {
+	size:		small;
+}
