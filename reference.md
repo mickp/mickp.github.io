@@ -1,5 +1,13 @@
 # Reference material
 
+## Enclosure manufacturers
+
+* [Herzan](http://www.herzan.com/products/custom-solutions/custom-acoustic-enclosures.html) - UK distributor, CN Tech (Clive)
+* [TMC](http://www.techmfg.com/products/acoustic-enclosure-and-precision-structure/muliti-purposeacousticenclosures)
+* [TCS Ltd](https://tcsltd.org.uk/products/) No info on website. Contact Bob Smith.
+
+
+
 ## Deformable mirrors
 
 ### Low actuator count
