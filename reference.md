@@ -1,11 +1,22 @@
 # Reference material
 
+## SHCS counterbores
+
+Counterbore dimensions for ISO 4762 socket head cap screws.
+
+  | size  | Ø cbore | ↧ cbore |  Ø clear  |
+  | :---  |    ---: |    ---: |      ---: |
+  | M3    | 6.5     | 3.4     |  3.4      |
+  | M4    | 8.0     | 4.6     |  4.5      |
+  | M5    | 10.0    | 5.7     |  5.5      |
+  | M6    | 11.0    | 6.8     |  6.6      |
+
+
 ## Enclosure manufacturers
 
 * [Herzan](http://www.herzan.com/products/custom-solutions/custom-acoustic-enclosures.html) - UK distributor, CN Tech (Clive)
 * [TMC](http://www.techmfg.com/products/acoustic-enclosure-and-precision-structure/muliti-purposeacousticenclosures)
 * [TCS Ltd](https://tcsltd.org.uk/products/) No info on website. Contact Bob Smith.
-
 
 
 ## Deformable mirrors
