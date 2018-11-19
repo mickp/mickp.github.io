@@ -3,6 +3,10 @@
   --main-fg-colour: #ddd;
 }
 
+th, td {
+  	padding-right: 2em;
+}
+	
 a {
 	color:			#66f;
 }
