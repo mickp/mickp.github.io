@@ -40,6 +40,7 @@ This led me to think about three possibilities:
 i) using byte-packing for more efficient storage;
 ii) exploiting the repetition within terms;
 iii) exploiting the periodicity of the sequence after the 22nd term.
+
 The first possibility is not really feasible: it would reduce storage requirements, but I'd still need to iterate over something like 10^12 digits, with an additional overhead on en/decoding those digits. The same goes for the second possibility, if it were only used to reduce storage overhead, but it also allows for a reduction in computational overhead: where there is repetition of subsequences, full treatment is only required on the first occurence of a subsequence; we just have to make sure that those subsequences can be treated independently.
 
 The third possibility provides a way of identifying independent subsequences. Two adjacent subsequences will not affect each other if the last digit of the left subsequence never equals the first digit of the right subsequence, with 'never' meaning 'over all iterations'. The last digit of a (sub)sequence is invariant on iteration: 
