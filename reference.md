@@ -29,7 +29,7 @@ As at 2017-07-25
   | :---            | :---           | :---         |                 ---: |            ---: |         ---: |                     ---: |
   |ALPAO            |  DM 69         | continuous   | 10.5                 | 69              | 60           | 0.8                      |
   |ALPAO            |  DM 88         | continuous   | 20.0                 | 88              | 40           | 1.6                      |
-  |ALPAO            |  DM 97-08      | continuous   | 7\. 2sublime |97     | 80              | 1.6          |                          |
+  |ALPAO            |  DM 97-08      | continuous   | 7.2                  | 97              | 80           | 1.6                      |
   |ALPAO            |  DM 97-15      | continuous   | 13.5                 | 97              | 60           | 0.8                      |
   |BMC              |  Mini-1.5      | continuous   | 1.5                  | 32              | 1.5          | 0.02                     |
   |BMC              |  Mini-3.5      | continuous   | 2.0                  | 32              | 3.5          | 0.1                      |
