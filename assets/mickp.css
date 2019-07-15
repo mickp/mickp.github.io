@@ -23,3 +23,15 @@ footer > p {
 	text-align: 	center;
 	font-size:		small;
 }
+
+ul.posts > li > span {
+    float: left;
+    clear: left;
+    width: 14ex;
+    font-family: monospace;
+    font-size: large;
+}
+
+ul.posts {
+    list-style-type: none;
+}
