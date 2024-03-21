@@ -197,7 +197,7 @@ const catalogQuery = {
   },
 
   get rowCount() {
-    return fetchDatabase().then(db => db.exec('SELECT COUNT(id) FROM tunes')[0].values[0][0]);
+    return fetchDatabase().then(db => db.exec(`SELECT COUNT(id) ${this.from} ${this.where}`)[0].values[0][0]);
   },
 
   get rows() {
