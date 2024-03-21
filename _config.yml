@@ -1,12 +1,14 @@
 theme: jekyll-theme-slate
 defaults:
  - scope:
-    path: "ConwayToneMatrix"
-  values:
-    title: ConwayToneMatrix
-    permalink: "/conway/"
+     path: "ConwayToneMatrix"
+   values:
+     title: ConwayToneMatrix
+     permalink: "/conway/"
+ 
  - scope:
-    path: "tunes"
-  values:
-    title: Tunes
-    permalink: "/tunes/"
+     path: "tunes"
+   values:
+     title: Tunes
+     permalink: "/tunes"
+     tunesUrl: "/tunes"

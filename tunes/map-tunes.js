@@ -19,7 +19,7 @@ const PAGINATION_LIMIT = 5;
 
 function includeNavigation () {
   var navContainer = document.getElementById(KEYS.navigation);
-  fetch('/nav').then( res => res.text())
+  fetch(`${ document.baseURI }/nav`).then( res => res.text())
                .then( txt => { navContainer.innerHTML = txt; });
 }
 
@@ -27,8 +27,8 @@ function includeNavigation () {
 
 async function fetchDatabase(refresh=false) {
   const headers = refresh ? {'Cache-Control':'no-store, no-cache' } : {};
-  const sqlPromise = initSqlJs({ locateFile: file => `${window.location.origin}/scripts/${file}` });
-  const dataPromise = fetch("/tunes.db", { 'headers' :headers} ).then(res => res.arrayBuffer());
+  const sqlPromise = initSqlJs({ locateFile: file => `${ document.baseURI }/scripts/${file}` });
+  const dataPromise = fetch(`${ document.baseURI }/tunes.db`, { 'headers' :headers} ).then(res => res.arrayBuffer());
   const [SQL, buf] = await Promise.all([sqlPromise, dataPromise]);
   const db = new SQL.Database(new Uint8Array(buf));
   return db;
@@ -148,7 +148,7 @@ const catalogCols = [
   defineColumn('', makeCheckbox),
   defineColumn(
     'Name',
-    (row, t) => row.insertCell().innerHTML = `<a href=/tunebook.html?tuneId=${t.id}>${t.title}</a>`,
+    (row, t) => row.insertCell().innerHTML = `<a href=${ document.baseURI }/tunebook.html?tuneId=${t.id}>${t.title}</a>`,
     `search_title LIKE '$QVAL'`),
   defineColumn(
     'Credit',
