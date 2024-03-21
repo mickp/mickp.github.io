@@ -1,0 +1,102 @@
+#tableStatus {
+  margin: 1em;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+div#catalog table {
+  width:  100%;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border: 2px solid #000;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+div#catalog input {
+  width: 100%;
+}
+
+div#catalog tr {
+  border:  1px solid #000;
+  text-wrap:  nowrap;
+  white-space-collapse: ;
+}
+
+div#catalog td {
+  border: 1px dotted #000;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: max-content;
+  min-width: fit-content;
+  white-space:  nowrap;
+}
+
+div#catalog td:last-child {
+  width: 100%;
+}
+
+div#catalog .abcjs-container {
+  padding:  0;
+  margin:  0;
+  overflow: visible;
+  height:  32px;
+  width:  fit-content;
+  border: solid;
+}
+
+div#catalog .abcjs-chord, 
+div#catalog .abcjs-ending, 
+div#catalog .abcjs-meta-bottom,
+div#catalog .abcjs-meta-top,
+div#catalog .abcjs-part,
+div#catalog .abcjs-part-order,
+div#catalog .abcjs-rhythm,
+div#catalog .abcjs-subtitle,
+div#catalog .abcjs-tempo,
+div#catalog .abcjs-text,
+div#catalog .abcjs-title,
+div#catalog .abcjs-top-of-system
+{
+  display: none;
+}
+
+div#pagination {
+  margin: 8px;
+}
+
+div#pagination input
+{
+  width:  4em;
+  text-align: center;
+}
+
+abc-div {
+  display: block;
+  width: fit-content;
+}
+
+abc-div .synth-transport {
+  display: block;
+  width:  100%;
+}
+
+@media print {
+  div#navigation {
+    display: none;
+  }
+
+  abc-div {
+    display: block;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    padding:  0px;
+    margin:  0px;
+  }
+
+  abc-div svg {
+    width: unset  ;
+  }
+
+  abc-div .synth-transport {
+    display: none;
+  }
+}
