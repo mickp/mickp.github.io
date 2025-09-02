@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>
+   Temperaments
+ </title>
+ <style>
+  body {
+    font-family: sans-serif;
+  }
+  button {
+    width: 26ex;
+    float: None;
+  }
+  #display {
+    float: left;
+  }
+  #buttons {
+    float: left;
+    margin: 1ex;
+    width: 26ex;
+  }
+  #buttons>* {
+    margin: 2pt;
+  }
+  .slider {
+    font-family: sans-serif;
+    font-size: small;
+  }
+  .label {
+    padding-top: 12pt;
+    font-size: small;
+  }
+  #footer {
+    clear: both;
+    padding-top: 18pt;
+  }
+</style>
+</head>
+<body>
+ <div id="top"><h1>Intervals</h1></div>
+ <div id="controls">
+   <select name="scheme" id="scheme"></select>
+ </div>
+ <div id="display">
+   <canvas id="myCanvas" width="600" height="600"></canvas>
+ </div>
+ <div id="footer">
+   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Intervals</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/mickp/toneMatrixLife" property="cc:attributionName" rel="cc:attributionURL">Mick Phillips</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+ </div>
+</body>
+<script type="text/javascript" src="temperaments.js"></script>
+</html>
