@@ -8,10 +8,10 @@ This work is licensed under the Creative Commons Attribution-ShareAlike
 http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to
 Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 */
+
 function perfect() {
   return [1., 4./3., 3./2., 2.];
 }
-
 
 function just8() {
   return [1., 9./8., 5./4., 4./3., 3./2., 5./3., 15./8.];
@@ -21,9 +21,11 @@ function just12() {
   return [1., 16./15., 9./8., 6./5., 5./4., 4./3., 45./32., 3./2., 8./5., 5./3., 16./9., 15./8.]
 }
 
+function edo12() {
+  return [...Array(12).keys().map(i => Math.pow(2, i/12))];
+}
 
-intonations = {'just12': just12, 'just8': just8};
-
+const intonations = {'just12': just12, 'just8': just8, 'edo12': edo12};
 
 var schemeSelector = document.getElementById("scheme");
 for (name in intonations) {
@@ -38,9 +40,6 @@ schemeSelector.addEventListener('change', function () {
   scheme = intonations[schemeSelector.selectedOptions[0].label];
   draw();
 });
-
-
-
 
 var canvas = document.getElementById("myCanvas");
 var context = canvas.getContext("2d");
@@ -109,29 +108,35 @@ function drawIntervals(h0, h1, colours) {
   n_rows = matrix.length;
   n_cols = matrix[0].length;
 
-  min_f = 0.99 * Math.min.apply(null, matrix.map(r => r[0]));
-  max_f = 1.05 * Math.max.apply(null, matrix.map(r => r.at(-1)));
+  min_f = Math.min.apply(null, matrix.map(r => r[0]));
+  max_f = Math.max.apply(null, matrix.map(r => r.at(-1)));
+  margin = {left: 4, right: 16};
+
+  function f2x(f) {
+    return margin.left + (f - min_f) * (canvas.width - 2 * (margin.left + margin.right)) / (max_f - min_f);
+  }
 
   matrix.map( (row, i, arr) => {
     var y0 = h0 + i * (h1 - h0) / n_rows;
     var y1 = h0 + (i + 1) * (h1 - h0) / n_rows;
     
+    perfect().map((p, idx, _) => {
+        f = p * row[i];
+        f = f > max_f ? f / 2. : f;
+
+        var coords = [f2x(f), y0, 1, y1 - y0];
+        context.strokeStyle = colours[idx % colours.length];
+        context.strokeRect(...coords);
+      });
+
     row.map((f, j, _) => {  
-      x = (f - min_f) * canvas.width / (max_f - min_f);
+      x = f2x(f);
       context.lineWidth = 2;
       context.fillStyle = '#000';
 
       var coords = [x, y0, 1, y1 - y0];
 
-      context.fillRect(...coords)
-
-      perfect().map((p, idx, _) => {
-        if (f == row[i] * p || f == p * row[i] / 2.) {  
-          context.strokeStyle = colours[idx];
-          context.strokeRect(...coords);
-        }
-      });
-  
+      context.fillRect(...coords);
       context.strokeStyle = '#00F';
       context.lineWidth = 0;
       context.fillText(`${f.toFixed(1)}`, x + 4, (y0 + y1) / 2.);
