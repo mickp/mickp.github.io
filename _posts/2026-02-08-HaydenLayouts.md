@@ -7,6 +7,7 @@ permalink: /instruments/hayden/
     canvas {
         border: 1px solid black;
         display: inline-block;
+        background-color: #eeeeee;
     }
     form {
         display: inline-block;
