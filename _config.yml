@@ -1,4 +1,5 @@
 theme: jekyll-theme-slate
+title: mickp.github.io
 defaults:
  - scope:
      path: "ConwayToneMatrix"
