@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hayden duet concertina layouts
+permalink: /instruments/hayden/
 ---
 <style>
     canvas {
