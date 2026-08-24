@@ -257,6 +257,7 @@ function makeColumnHeader(columnDef, hasInput=false) {
     const button = document.createElement('input');
     button.setAttribute(`type`, "text");
     button.setAttribute(`label`, columnDef.label);
+    button.setAttribute(`placeholder`, "search");
     button.readonly = false;
     button.setAttribute(KEYS.inputQueryTemplate, columnDef.query);
     button.addEventListener('change', onQueryInput);
