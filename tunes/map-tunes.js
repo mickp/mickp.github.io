@@ -164,7 +164,17 @@ const catalogCols = [
     `rhythm LIKE '$QVAL'`),
   defineColumn(
     'Collection/Book',
-    (row, t) => row.insertCell().innerText = `${t.book}`,
+    (row, t) => {
+      var cell = row.insertCell();
+      cell.append(document.createTextNode(`${t.book}`));
+      if (t.link) {
+        var link = document.createElement("a")
+        link.textContent = "link";
+        link.href = t.link;  
+        link.target = "_blank";
+        cell.append(link);
+      }
+    },
     `book LIKE '$QVAL'`),
 ]
 
