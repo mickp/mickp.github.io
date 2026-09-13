@@ -11,6 +11,24 @@ div#catalog table {
   border-collapse: collapse;
 }
 
+#header {
+  display: inline;
+}
+
+#clef {
+  float: right;
+  clear: right;
+  font-size: larger;
+}
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
 div#catalog input {
   width: 100%;
 }

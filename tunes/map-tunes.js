@@ -14,6 +14,41 @@ const KEYS = {
   'queryPlaceholder': '$QVAL',
 }
 
+const CLEFS = new Map();
+CLEFS.set('treble', '𝄞');
+CLEFS.set('alto', '𝄡');
+
+function keyAfter(m, k, cycle=false) {
+  // Returs the key following k in the map, m.
+  let found = false;
+
+  for (const key of m.keys()) {
+    if (found) return key;
+    if (Object.is(key, k)) found = true;
+  }
+
+  if (cycle)
+    return m.keys().next().value;
+  else
+    return undefined;
+}
+
+
+const STATE = {
+  clef: CLEFS.keys().next().value,
+}
+
+
+function setClef(abc, clef) {
+  return abc.replace(/^K:[^\r\n]*/m, line => {
+    if (/\bclef\s*=/i.test(line)) {
+      return line.replace(/\bclef\s*=\s*\S+/gi, `clef=${clef}`);
+    }
+
+    return `${line.trimEnd()} clef=${clef}`;
+  });
+}
+
 
 const PAGINATION_LIMIT = 5;
 
@@ -75,11 +110,29 @@ function parseSelectionToWhereClause() {
   }
 }
 
+function includeClef() {
+  // Populates the clef element.
+  var clefToggle = document.getElementById('clef');
+  clefToggle.setAttribute('id', 'clef');
+  var current = STATE.clef ?? CLEFS.keys().next.value;
+  var next = keyAfter(CLEFS, current, true);
+  clefToggle.innerHTML = `${CLEFS.get(current)} &rarr; ${CLEFS.get(next)}`;
+}
+
+function clefToggle() {
+  // Advances the clef type.
+  STATE.clef = keyAfter(CLEFS, STATE.clef, true);
+  document.getElementById('tuneArea').innerHTML = '';
+  renderTuneBook();
+}
+
 async function renderTuneBook() {
-  includeNavigation();
+  var nav = includeNavigation();
   var container = document.getElementById('tuneArea');
+  includeClef();
+
   const params = new URLSearchParams(location.search);
-  const tuneId = params.get('tuneId')
+  const tuneId = params.get('tuneId');
 
   if (tuneId) {
     var query = await fetchDatabase().then(db => db.prepare(`SELECT * FROM tunes where id = ${tuneId}`));
@@ -91,7 +144,7 @@ async function renderTuneBook() {
     const abcDiv = document.createElement('abc-div');
     let t = query.getAsObject();
     abcDiv.setAttribute('id', t.id);
-    abcDiv.innerText += t.abc
+    abcDiv.innerText += setClef(t.abc, STATE.clef);
     container.appendChild(abcDiv);
   }
 }
